@@ -26,4 +26,16 @@ class NeuralNetwork:
         dz1 = self.relu.backward(da1)
         _dx = self.fc1.backward(dz1)
         return _dx
+
+    def predict(self, x):
     
+            z1 = self.fc1.forward(x)
+            a1 = self.relu.forward(z1)
+            logits = self.fc2.forward(a1)
+            shifted = logits - logits.max(axis=1, keepdims=True)
+            exp_scores = np.exp(shifted)
+            probs = exp_scores / exp_scores.sum(axis=1, keepdims=True)
+            return np.argmax(probs, axis=1)
+    
+    def parameters(self):
+        return self.fc1.params_and_grads() + self.fc2.params_and_grads()
