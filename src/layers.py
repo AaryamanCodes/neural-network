@@ -25,7 +25,7 @@ class Linear:
     def params_and_grads(self):
             return [(self.W, self.dW), (self.b, self.db)]
 
-    class ReLU:
+class ReLU:
 
     def __init__(self):
         self.mask = None

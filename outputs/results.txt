@@ -1,0 +1,4 @@
+Final train accuracy: 1.0000
+Final test accuracy:  0.9639
+Final train loss:     0.0018
+Final test loss:      0.1206
